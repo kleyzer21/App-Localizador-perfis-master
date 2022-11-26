@@ -1,0 +1,28 @@
+.erro {
+    padding: 20px;
+    background-color: #ff8080;
+    border: 1px solid #e42d2d;
+    color: #e42d2d;
+}
+.dados{
+background-color: rgb(16, 16, 241);
+border-radius: 10px;
+
+
+}
+.topo{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    display: inline-block;
+}
+.img{
+    margin-top: -10px;
+   width: 75px;
+    
+}
+.btn{
+    background-color: rgb(16, 16, 241);
+    
+}

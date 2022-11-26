@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Localizador de perfis</title>
+</head>
+
+<body>
+  <main class="container">
+    <article>
+      <header>
+        <img class="img" src="./img/git.png" alt="">
+        <h1 class="topo"> App Localizador de perfis</h1>
+        
+      </header>
+      <section class="grid">
+        <form id="consultaPerfis">
+          <label>Localizar
+            <input class="botaoBuscar" placeholder="buscar" name="buscarGit" type="text" maxlength="8" />
+          </label>
+          <button class="btn" id="btnConsultaPerfis">Buscar</button>
+        </form>
+        <div class="dados" id="dados"> 
+        </div>
+      </section>
+    </article>
+  </main>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
