@@ -1,29 +1,29 @@
 import '@picocss/pico'
 import './style.css'
-const formConsultaPerfis = document.querySelector('#ConsultaPerfis')
-const inputBuscaGit = formConsultaPerfis.buscarGit // seleciona o input do cep a partir do formulário
+const formConsultarPerfis = document.querySelector('#ConsultarPerfis')
+const inputBuscarGit = formConsultarPerfis.BuscarGit // seleciona o input do cep a partir do formulário
 const divDados = document.querySelector('#dados')
-const btnConsultaPerfis =
-  document.querySelector('#btnConsultaPerfis')
+const btnConsultarPerfis =
+  document.querySelector('#btnConsultarPerfis')
 
-formConsultaPerfis.addEventListener('submit', function (event) {
+formConsultarPerfis.addEventListener('submit', function (event) {
   event.preventDefault() // anula comportamento padrão de envio do form ao clicar no botão
   ativaLoader(true)
-  ConsultaPerfis(inputBuscaGit.value) // invoca a função passando o cep digitado por parâmetro
+  ConsultarPerfis(inputBuscarGit.value) // invoca a função passando o cep digitado por parâmetro
 })
 
-async function ConsultaPerfis(buscarGit) {
-  let response = await fetch(`https://api.github.com/users/${buscarGit}`)
-  let dadosCep = await response.json()
-  if (dadosCep.erro) {
+async function ConsultarPerfis(BuscarGit) {
+  let response = await fetch(`https://api.github.com/users/${BuscarGit}`)
+  let dadosBuscarGit = await response.json()
+  if (dadosBuscarGit.name === undefined) {
     divDados.innerHTML = `
       <div class="erro">Perfis não encontrado!</div>
     `
   } else {
     divDados.innerHTML = `
-    <p> Nome: ${dadosBuscar.name}  </p>
-    <p> Link: ${dadosBuscar.html_url}  </p>
-    <p> Imagem: ${dadosBuscar.avatar_url}  </p>
+    <img src="${dadosBuscarGit.avatar_url}" alt="">
+    <h1>${dadosBuscarGit.name}</h1>
+    <a href="${dadosBuscarGit.html_url}">Perfil no GitHub</a>
   `
   }
   ativaLoader(false)
@@ -31,14 +31,13 @@ async function ConsultaPerfis(buscarGit) {
 
 function ativaLoader(ativo) {
   if (ativo) {
-    btnConsultaPerfis.
+    btnConsultarPerfis.
       setAttribute('aria-busy', 'true')
-    btnConsultaPerfis.
+    btnConsultarPerfis.
       textContent = 'Consultando Perfis...'
   } else {
-    btnConsultaPerfis.removeAttribute('aria-busy')
-    btnConsultaPerifs.
-      textContent = 'Consultar'
+    btnConsultarPerfis.removeAttribute('aria-busy')
+    btnConsultarPerfis. textContent = 'Consultar'
   }
 }
 
